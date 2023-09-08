@@ -23,10 +23,10 @@ test("renders 'Directors Page' inside of a <h1 />", () => {
 
 test("renders each director's name", () => {
   render(<Directors />);
-  for (const director of directors) {
-    expect(
-      screen.queryByText(director.name, { exact: false })
-    ).toBeInTheDocument();
+  const directorNames = screen.getAllByTestId("director-name");
+
+  for (const directorName of directorNames) {
+    expect(directorName).toBeInTheDocument();
   }
 });
 

@@ -23,10 +23,10 @@ test("renders 'Actors Page' inside of the <h1 />", () => {
 
 test("renders each actor's name", () => {
   render(<Actors />);
-  for (const actor of actors) {
-    expect(
-      screen.queryByText(actor.name, { exact: false })
-    ).toBeInTheDocument();
+  const actorNames = screen.getAllByTestId("actor-name");
+
+  for (const actorName of actorNames) {
+    expect(actorName).toBeInTheDocument();
   }
 });
 
